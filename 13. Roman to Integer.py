@@ -1,4 +1,6 @@
-numerals = {
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        numerals = {
             "I" :  1,
             "V" : 5,
             "IV": 4,
@@ -13,17 +15,17 @@ numerals = {
             "M" : 1000,
             "CM":900
         }
-s= "MCMXCIV"
-value = 0
-weird = set(["IV", "IX", "XL", "XC","CD", "CM"])
-i = 0
-while i < len(s):
-    if s[i:i+2] in weird:
-        char = s[i:i+2]
-        i +=2
-    else:
-        char = s[i]
-        i +=1
-    value += numerals[char]
-    print(value)
-        
+
+        value = 0
+        i = 0
+
+        while i < len(s):
+            if s[i:i+2] in numerals and i + 1 < len(s):
+                char = s[i:i+2]
+                i +=2
+            else:
+                char = s[i]
+                i +=1
+            value += numerals[char]
+        return value
+                
