@@ -14,4 +14,5 @@ class Solution:
         if xy_count % 2 == 1:
             total_swaps += 2
         return total_swaps
+
         
