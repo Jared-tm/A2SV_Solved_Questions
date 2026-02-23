@@ -15,9 +15,8 @@ while p1 < n and p2 <m:
     else:
         res.append(nums2[p2])
         p2 += 1
-if p1 < n:
-    res.extend(nums1[p1+1])
-elif p2 < m:
-    res.extend(nums2[p2:])
+
+res.extend(nums1[p1:])
+res.extend(nums2[p2:])
 
 print(*res)
