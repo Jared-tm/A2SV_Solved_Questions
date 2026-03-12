@@ -4,17 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        
-        ans = 0
-        nums.sort()
-        for i in range(len(nums) -2):
-            perimeter = 0
-            if nums[i]+nums[i+1] > nums[i+2]:
-                perimeter += nums[i] + nums[i+1] + nums[i+2]
-            ans= max(ans, perimeter)
-        return ans
-            
+        n = len(nums)
+        nums.sort(reverse = True)
 
-            
-
+        for i in range(n-2):
+            a,b,c = nums[i+2], nums[i+1], nums[i]
+            if a + b > c: return a+b+c
+        return 0
         
