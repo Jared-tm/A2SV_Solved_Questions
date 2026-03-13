@@ -4,13 +4,13 @@ class Solution(object):
         :type costs: List[List[int]]
         :rtype: int
         """
-        n = len(costs)
+        n = len(costs) // 2
         costs.sort(key = lambda x: x[0]-x[1])
         ans = 0
-        for i in range(n//2):
+        for i in range(n):
             ans += costs[i][0]
-        for j in range(n//2,n):
-            ans += costs[j][1]
+        for i in range(n,2*n):
+            ans += costs[i][1]
 
         return ans
        
