@@ -4,21 +4,11 @@ class Solution(object):
         :type answers: List[int]
         :rtype: int` v
         """
-        freq = Counter(answers)
-        min_rabbits = 0  
-        
-        for rabbit in answers:
-            if len(freq) == 0:
-                break
-            elif rabbit in freq:
-                freq[rabbit] -= 1  
-                min_rabbits += 1 + rabbit
-
-
-                if freq[rabbit] - rabbit <= 0:
-                    del freq[rabbit]
-                else:
-                    freq[rabbit] = freq[rabbit] - rabbit
-
-        return min_rabbits
-        
+        freq = Counter(answers) 
+        min_rabbits = 0
+        for ans, count in freq.items():
+            group_size = ans + 1 
+            num_groups = math.ceil(count / float(group_size)) 
+            min_rabbits += num_groups * group_size
+            
+        return int(min_rabbits)
